@@ -1,5 +1,4 @@
 <?php
-
 function delete__trash($files) {
     $result = array();
     for ($i = 0; $i < count($files); $i++) {
@@ -12,6 +11,16 @@ function delete__trash($files) {
 }
 
 function gallery() {
-    $dir = 'img';
+    $dir = '../public/img/gallery';
+    $files = scandir($dir);
+    $files = delete__trash($files);
+    $links = array();
 
+    for ($i = 0; $i < count($files); $i++) {
+        $src = $dir. "/" .$files[$i];
+        array_push($links, $src);
+    }
+    return $links;
 }
+
+$constGallery = gallery();

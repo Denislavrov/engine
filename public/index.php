@@ -23,6 +23,7 @@ switch ($page) {
         break;
     case 'gallery':
         $params = [
+            'constGallery' => $constGallery
         ];
         break;
     case 'catalog':
