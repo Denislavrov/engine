@@ -1,7 +1,48 @@
 <?php
 //Файл с функциями нашего движка
+function prepareVariables($page)
+{
+
+//Для каждой страницы готовим массив со своим набором переменных
+//для подстановки их в соотвествующий шаблон
+    $params = [];
+    switch ($page) {
+        case 'index':
+
+            break;
+        case 'gallery':
+
+            loadFile();
+
+            $params = [
+                'arrayImages' => gallery('./img/gallery/'),
+                'errorMessage' => getErrorMessage($_GET['errorMessage'])
+            ];
+            break;
+        case 'catalog':
 
 
+            if ($_POST['load']) {
+                // echo "Загружаем файл";
+                header("Location: ?page=catalog");
+            }
+
+            $params = [
+                'catalog' => ["Чай", "Печенье", "Вафли"]
+            ];
+            break;
+
+        case 'api_catalog':
+            $params = [
+                "catalog" => [
+                    "Спички",
+                    "Кружка",
+                    "Ведро"
+                ]
+            ];
+    }
+    return $params;
+}
 //Функция, возвращает текст шаблона $page с подстановкой переменных
 //из массива $params, содержимое шабона $page подставляется в
 //переменную $content главного шаблона layout для всех страниц

@@ -1,17 +1,22 @@
 <?php
-
-function delete__trash($files) {
-    $result = array();
-    for ($i = 0; $i < count($files); $i++) {
-        if ($files[$i] != "." && $files[$i] != "..") {
-            $result[] = $files[$i];
-        }
-    }
-    return $result;
-
+function gallery($dir) {
+    return array_slice(scandir($dir),2);
 }
 
-function gallery() {
-    $dir = 'img';
-
+function getErrorMessage($errorMessage) {
+    if (isset($errorMessage)) {
+        switch ($errorMessage) {
+            case "ok":
+                return "Изображение успешно загружено";
+                break;
+            case "php":
+                return "Загрузка php-файлов запрещена!";
+                break;
+            case "error":
+                return "Загрузка не получилась.";
+                break;
+            default:
+                return "";
+        }
+    }
 }

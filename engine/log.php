@@ -49,21 +49,17 @@ function _makeDir($dir, $is_root = true, $root = '')
     if (str_replace($_SERVER['DOCUMENT_ROOT'], "", $dir) == $dir)
         return true;
 
-    if ($is_root)
-    {
+    if ($is_root) {
         $dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', $dir);
         $root = $_SERVER['DOCUMENT_ROOT'];
     }
     $dir_parts = explode("/", $dir);
 
-    foreach ($dir_parts as $step => $value)
-    {
-        if ($value != '')
-        {
+    foreach ($dir_parts as $step => $value) {
+        if ($value != '') {
             $root = $root . "/" . $value;
 
-            if (!is_dir($root))
-            {
+            if (!is_dir($root)) {
                 mkdir($root, 0755);
                 chmod($root, 0755);
             }
