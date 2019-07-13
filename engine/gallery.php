@@ -15,6 +15,7 @@ function getImages($id) {
     if(isset($img[0]))
         $result = $img[0];
     return $result;
+
 }
 
 function getErrorMessage($errorMessage) {
