@@ -15,9 +15,13 @@ function prepareVariables($page)
             loadFile();
 
             $params = [
-                'arrayImages' => gallery('./img/gallery/'),
+                'arrayImages' => getGallery(),
                 'errorMessage' => getErrorMessage($_GET['errorMessage'])
             ];
+            break;
+        case 'imagepage':
+
+            $params['url'] = getImages($_GET['id'])['url'];
             break;
         case 'catalog':
 

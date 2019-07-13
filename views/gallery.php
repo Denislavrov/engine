@@ -5,11 +5,12 @@
  * @var $errorMessage
  */
 ?>
+    <h1>Gallery</h1>
 
 <div class="gallery">
     <?php foreach ($arrayImages as $value): ?>
-        <a href="/img/gallery/<?=$value?>" class="gallery__item" target="_blank">
-            <img class="gallery__img" src="/img/gallery/<?=$value?>" alt="" />
+        <a href=/imagepage/?id="<?=$value['id']?>" class="gallery__item" target="_blank">
+            <img class="gallery__img" src="<?=$value['url']?>" alt="" />
         </a>
     <?php endforeach; ?>
 </div>
