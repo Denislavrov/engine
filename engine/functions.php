@@ -21,7 +21,12 @@ function prepareVariables($page)
             break;
         case 'imagepage':
 
-            $params['url'] = getImages($_GET['id'])['url'];
+            $params = [
+                'url' => getImages($_GET['id'])['url'],
+                'name' => getImages($_GET['id'])['name'],
+                'views' => updateViews($_GET['id'])['views'],
+                'span' => showImagesViews($_GET['id'])['views']
+                ];
             break;
         case 'catalog':
 

@@ -9,8 +9,8 @@
 
 <div class="gallery">
     <?php foreach ($arrayImages as $value): ?>
-        <a href=/imagepage/?id="<?=$value['id']?>" class="gallery__item" target="_blank">
-            <img class="gallery__img" src="<?=$value['url']?>" alt="" />
+        <a href=/imagepage/?id=<?=$value['id']?> class="gallery__item">
+            <img class="gallery__img" src="/img/gallery/<?=$value['url']?>" alt="" />
         </a>
     <?php endforeach; ?>
 </div>
